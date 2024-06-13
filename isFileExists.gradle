@@ -1,0 +1,22 @@
+task checkAndCopyFile (description: "check is file exists, and if not to copy file from source-file", group: "ukma") {
+    doLast {
+        def sourceFile = file("$projectDir/$sourceFileName")
+        def targetFile = file("$projectDir/$targetFileName")
+
+        if (targetFile.exists()) {
+            println "File '$targetFileName' already exists in resources."
+        } else {
+            println "File '$targetFileName' does not exist in resources."
+            if (sourceFile.exists()) {
+                copy {
+                    from sourceFile
+                    into targetFile.parent
+                    rename { fileName -> targetFile.name }
+                }
+                println "File '$sourceFileName' has been copied to resources."
+            } else {
+                throw new GradleException("Source file '$sourceFileName' does not exist.")
+            }
+        }
+    }
+}

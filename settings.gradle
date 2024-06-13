@@ -1,0 +1,5 @@
+rootProject.name = 'AutomationPractice3'
+include 'core'
+include 'model'
+include 'util'
+

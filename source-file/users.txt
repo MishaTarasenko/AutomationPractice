@@ -1,0 +1,4 @@
+1&Misha&misha@gmail.com
+2&Sasha&@sasha.gmail.com
+3&Lyosha&lyosha.gmail.com
+4&Masha&masha@gmail.com

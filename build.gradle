@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group = 'ukma'
+version = '1.0-SNAPSHOT'
+
+apply from: "isFileExists.gradle"
+apply from: "prepareForWork.gradle"
+
+ext {
+    sourceFileName = 'source-file/users.txt'
+    targetFileName = 'model/src/main/resources/users.txt'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+build.dependsOn prepareForWork

@@ -1,0 +1,26 @@
+task prepareForWork(dependsOn: checkAndCopyFile, description: "prepare project to work", group: "ukma") {
+    doLast {
+        def sourceFile = file("$projectDir/$sourceFileName")
+        def targetFile = file("$projectDir/$targetFileName")
+
+        if (targetFile.exists()) {
+            println "File '$targetFileName' exists in resources."
+            def sourceFileContent = new String(sourceFile.readBytes())
+            def targetFileContent = new String(targetFile.readBytes())
+
+            if (sourceFileContent.equals(targetFileContent)) {
+                println "File in resources is identical to the source file."
+            } else {
+                println "File in resources differs from the source file. Updating file."
+                copy {
+                    from sourceFile
+                    into targetFile.parent
+                    rename { fileName -> targetFile.name }
+                }
+                println "File '$sourceFileName' has been updated in resources."
+            }
+        } else {
+            throw new GradleException("File '$targetFileName' should exist after checkAndCopyFile task.")
+        }
+    }
+}
