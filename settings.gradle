@@ -1,0 +1,5 @@
+rootProject.name = 'AutomationPractice4'
+include 'annotations'
+include 'app'
+include 'compiler'
+
