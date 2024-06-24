@@ -21,11 +21,14 @@ public class Validator {
                 }
             } else if (field.isAnnotationPresent(ValidateEmail.class)) {
                 String email = (String) field.get(obj);
-                Matcher matcher = EMAIL_PATTERN.matcher(email);
-                if(!matcher.matches()) {
+                if(!validateEmail(email))
                     throw new IllegalArgumentException("Invalid email format");
-                }
             }
         }
+    }
+
+    public static boolean validateEmail(String email) {
+        Matcher matcher = EMAIL_PATTERN.matcher(email);
+        return matcher.matches();
     }
 }
