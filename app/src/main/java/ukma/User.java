@@ -26,4 +26,16 @@ public class User {
         }
         return user;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }
