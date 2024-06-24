@@ -1,0 +1,5 @@
+rootProject.name = 'AutomationPractice6'
+include 'annotation'
+include 'app'
+include 'compiler'
+
