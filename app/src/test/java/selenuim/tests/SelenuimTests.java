@@ -1,4 +1,4 @@
-package SelenuimTests;
+package selenuim.tests;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
